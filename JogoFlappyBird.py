@@ -95,7 +95,46 @@ class Passaro():
         pygame.mask.from_surface(self.imagem_passaro)
 
 class Cano():
-    pass
 
+    DISTANCIA = 200
+    VELOCIADADE = 5
+
+    def __init__(self,x): 
+        self.x = x
+        self.altura = 0
+        self.pos_topo = 0
+        self.pos_base = 0
+        self.img_cano_topo = pygame.tranform.flip(IMG_CANO, False, True)
+        self.img_cano_base = IMG_CANO
+        self.passou = False
+        self.definir_altura()
+
+    def definir_altura(self):
+        self.altura = random.randrange(50,450)
+        self.pos_base = self.altura - self.img_cano_topo.get_height()
+        self.pos_base = self.altura + self.DISTANCIA
+    
+    def mover_cano(self):
+        self.x -= self.VELOCIADADE
+
+    def desenhar(self,tela):
+        tela.blit(self.img_cano_topo,(self.x,self.pos_topo))
+        tela.blit(self.img_cano_base,(self.x,self.pos_base))
+    
+    def colidir(self,passaro):
+        passaro_mask = passaro.get_mask()
+        topo_mask = pygame.mask.from_surface(self.img_cano_topo)
+        base_mask = pygame.mask.from_surface(self.img_cano_base)
+
+        distancia_topo = (self.x-passaro.x, self.pos_topo - round(passaro.y))
+        distancia_base = (self.x-passaro.x, self.pos_base - round(passaro.y)) 
+
+        topo_ponto_colisao = passaro_mask.overlap(topo_mask,distancia_topo)
+        base_ponto_colisao = passaro_mask.overlap(base_mask,distancia_base)
+
+        if base_ponto_colisao or topo_ponto_colisao:
+            return True
+        else:
+            return False
 class Chao():
     pass
