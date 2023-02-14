@@ -147,7 +147,7 @@ class Chao():
         self.x1 = 0 
         self.x2 = self.LARGURA
     
-    def mover(self)):
+    def mover(self):
         self.x1 -= self.VELOCIDADE
         self.x2 -= self.VELOCIDADE
 
