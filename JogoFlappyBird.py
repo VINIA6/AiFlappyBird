@@ -137,4 +137,25 @@ class Cano():
         else:
             return False
 class Chao():
-    pass
+
+    VELOCIDADE = 5
+    LARGURA = IMG_CHAO.get_width()
+    img_chao = IMG_CHAO
+
+    def __init__(self,y):
+        self.y = y 
+        self.x1 = 0 
+        self.x2 = self.LARGURA
+    
+    def mover(self)):
+        self.x1 -= self.VELOCIDADE
+        self.x2 -= self.VELOCIDADE
+
+        if self.x1 + self.LARGURA < 0:
+            self.x1 = self.x1 + self.LARGURA
+        elif self.x2 + self.LARGURA <0:
+            self.x2 = self.x2 + self.LARGURA
+
+    def desenhar(self,tela):
+        tela.blit(self.img_chao ,(self.x1,self.y))
+        tela.blit(self.img_chao ,(self.x2,self.y))
