@@ -27,7 +27,23 @@ Neste caso o indivíduo a ser evoluído será o passáro, para cada caracteristi
 
 <img src="https://github.com/VINIA6/AiFlappyBird/blob/master/imgs/bird1.png" width="100" height="85" />
 
-### Redes neurais Artificiais
+### Redes Neurais Artificiais
+
+Redes neurais Artificiais são modelos computacionais inspirados pelo sistema nervoso central de um animal (em particular o cérebro) que são capazes de realizar o aprendizado de máquina bem como o reconhecimento de padrões. Redes neurais artificiais geralmente são apresentadas como sistemas de "neurônios interconectados, que podem computar valores de entradas", simulando o comportamento de redes neurais biológicas.
+
+<img src="https://github.com/VINIA6/AiFlappyBird/blob/master/imgs/config/rn.png" width="300" height="300" />
+
+### NEAT
+
+Neural Evolution Augment Topology (NEAT) utiliza as duas técnicas acima pra definir um indivíduo evoluído e inteiramente capaz de repoduzir as ações de inteligência do jogo, para cada pássaro, temos uma rede neural. 
+
+<img src="https://github.com/VINIA6/AiFlappyBird/blob/master/imgs/config/birdRN.png" width="450" height="300" />
+
+E todos os pássaros gerados devemos entender como um indivíduo diferente um do outro, assim feterminamos 100 pássaros para cada geração. 
+
+<img src="https://github.com/VINIA6/AiFlappyBird/blob/master/imgs/config/100.png" width="450" height="300" />
+
+Os indivíduos que ficam por último em cada geração servem para gerar novas mutações, onde serão os ancestrais de um espécie mais evoluída, assim fazendo com que um passáro em determinada geração seja evoluído suficiente para não morrer mais.
 
 ## Desenvolvimento do jogo 
 
